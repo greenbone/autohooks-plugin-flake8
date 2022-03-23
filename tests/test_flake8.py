@@ -28,7 +28,7 @@ from autohooks.terminal import Terminal
 from autohooks.api import _set_terminal
 from autohooks.api.git import Status, StatusEntry, get_staged_status
 
-from autohooks.plugins.pylint.pylint import (
+from autohooks.plugins.flake8.flake8 import (
     DEFAULT_ARGUMENTS,
     DEFAULT_INCLUDE,
     check_flake8_installed,
