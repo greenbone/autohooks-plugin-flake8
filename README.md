@@ -50,7 +50,7 @@ include = ['foo/*.py', '*.foo']
 ```
 
 By default, autohooks plugin flake8 executes flake8 without any arguments and
-flake8 settings are loaded from the *.flake8rc* file in the root directory of
+flake8 settings are loaded from the *.pylintrc* file in the root directory of
 git repository. To change specific settings or to define a different flake8 rc
 file the following plugin configuration can be used:
 
