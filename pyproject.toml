@@ -17,7 +17,7 @@ autohooks = "^21.3.0"
 flake8 = "^3.9.2"
 autohooks-plugin-black = "^1.2.0"
 pontos = "^22.2.4"
-black = "22.1.0"
+black = "22.3.0"
 isort = "^5.8.0"
 autohooks-plugin-isort = "^1.0.0"
 
