@@ -53,8 +53,8 @@ def get_include_from_config(config):
     if not config:
         return DEFAULT_INCLUDE
 
-    flake8_config = _get_flake8_config(config)
-    include = _ensure_iterable(
+    flake8_config = get_flake8_config(config)
+    include = ensure_iterable(
         flake8_config.get_value("include", DEFAULT_INCLUDE)
     )
 
@@ -65,8 +65,8 @@ def get_flake8_arguments(config):
     if not config:
         return DEFAULT_ARGUMENTS
 
-    flake8_config = _get_flake8_config(config)
-    arguments = _ensure_iterable(
+    flake8_config = get_flake8_config(config)
+    arguments = ensure_iterable(
         flake8_config.get_value("arguments", DEFAULT_ARGUMENTS)
     )
 
@@ -75,9 +75,9 @@ def get_flake8_arguments(config):
 
 def precommit(config=None, **kwargs):
     """Precommit hook for running flake8 on staged files."""
-    _check_flake8_installed()
+    check_flake8_installed()
 
-    include = _get_include_from_config(config)
+    include = get_include_from_config(config)
 
     files = [f for f in get_staged_status() if match(f.path, include)]
 
@@ -85,7 +85,7 @@ def precommit(config=None, **kwargs):
         ok("No staged files for flake8 available.")
         return 0
 
-    arguments = _get_flake8_arguments(config)
+    arguments = get_flake8_arguments(config)
 
     with stash_unstaged_changes(files):
         ret = 0
