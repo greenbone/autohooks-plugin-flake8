@@ -18,4 +18,3 @@
 """Provides autohooks plugin for flake8."""
 
 from .flake8 import precommit  # noqa: F401
-
