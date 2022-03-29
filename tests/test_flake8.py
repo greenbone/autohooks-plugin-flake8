@@ -153,5 +153,3 @@ print(err.decode(encoding='utf-8'))"""
 
         # Returncode 0 -> no errors
         self.assertFalse(ret)
-        
-        
