@@ -45,4 +45,3 @@ pre-commit = [
   "autohooks.plugins.isort",
   "autohooks.plugins.flake8",
 ]
-
