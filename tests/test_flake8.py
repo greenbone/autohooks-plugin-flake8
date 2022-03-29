@@ -46,50 +46,50 @@ def get_test_config_path(name):
 
 class AutohooksFlake8TestCase(TestCase):
     def test_flake8_installed(self):
-        flake8 = sys.modules['flake8']
-        sys.modules['flake8'] = None
+        flake8 = sys.modules["flake8"]
+        sys.modules["flake8"] = None
         with self.assertRaises(Exception):
             check_flake8_installed()
-        sys.modules['flake8'] = flake8
+        sys.modules["flake8"] = flake8
 
     def test_get_flake8_arguments(self):
         args = get_flake8_arguments(config=None)
         self.assertEqual(args, DEFAULT_ARGUMENTS)
 
     def test_get_flake8_config(self):
-        config_path = get_test_config_path('pyproject.test.toml')
+        config_path = get_test_config_path("pyproject.test.toml")
         self.assertTrue(config_path.is_file())
 
         autohooksconfig = load_config_from_pyproject_toml(config_path)
         self.assertTrue(autohooksconfig.has_config())
 
         flake8_config = get_flake8_config(autohooksconfig.get_config())
-        self.assertEqual(flake8_config.get_value('foo'), 'bar')
+        self.assertEqual(flake8_config.get_value("foo"), "bar")
 
     def test_ensure_iterable(self):
-        foo = 'bar'  # flake8: disable=blacklisted-name
+        foo = "bar"  # flake8: disable=blacklisted-name
         bar = ensure_iterable(foo)  # flake8: disable=blacklisted-name
-        self.assertEqual(bar, ['bar'])
+        self.assertEqual(bar, ["bar"])
 
-        foo = ['bar']
+        foo = ["bar"]
         bar = ensure_iterable(foo)  # flake8: disable=blacklisted-name
-        self.assertEqual(bar, ['bar'])
+        self.assertEqual(bar, ["bar"])
 
     def test_get_include_from_config(self):
         include = get_include_from_config(config=None)
         self.assertEqual(include, DEFAULT_INCLUDE)
 
-    @patch('autohooks.plugins.flake8.flake8.ok')
+    @patch("autohooks.plugins.flake8.flake8.ok")
     def test_precommit_no_files(self, _ok_mock):
         ret = precommit()
         self.assertFalse(ret)
 
     # these Terminal output functions don't run in the CI ...
     # @patch('sys.stdout', new_callable=StringIO)
-    @patch('autohooks.plugins.flake8.flake8.ok')
-    @patch('autohooks.plugins.flake8.flake8.out')
-    @patch('autohooks.plugins.flake8.flake8.error')
-    @patch('autohooks.plugins.flake8.flake8.get_staged_status')
+    @patch("autohooks.plugins.flake8.flake8.ok")
+    @patch("autohooks.plugins.flake8.flake8.out")
+    @patch("autohooks.plugins.flake8.flake8.error")
+    @patch("autohooks.plugins.flake8.flake8.get_staged_status")
     def test_precommit_errors(
         self,
         staged_mock,
@@ -113,12 +113,12 @@ print(out.decode(encoding='utf-8'))
 print(err.decode(encoding='utf-8'))"""
 
         test_file = Path(__file__).parent / "lint_test.py"
-        with open(test_file, 'a') as fp:
+        with open(test_file, "a") as fp:
             fp.writelines(code)
 
         staged_mock.return_value = [
             StatusEntry(
-                status_string='M  lint_test.py',
+                status_string="M  lint_test.py",
                 root_path=Path(__file__).parent,
             )
         ]
@@ -131,10 +131,10 @@ print(err.decode(encoding='utf-8'))"""
 
     # these Terminal output functions don't run in the CI ...
     # @patch('sys.stdout', new_callable=StringIO)
-    @patch('autohooks.plugins.flake8.flake8.ok')
-    @patch('autohooks.plugins.flake8.flake8.out')
-    @patch('autohooks.plugins.flake8.flake8.error')
-    @patch('autohooks.plugins.flake8.flake8.get_staged_status')
+    @patch("autohooks.plugins.flake8.flake8.ok")
+    @patch("autohooks.plugins.flake8.flake8.out")
+    @patch("autohooks.plugins.flake8.flake8.error")
+    @patch("autohooks.plugins.flake8.flake8.get_staged_status")
     def test_precommit_ok(
         self,
         staged_mock,
@@ -144,7 +144,7 @@ print(err.decode(encoding='utf-8'))"""
     ):
         staged_mock.return_value = [
             StatusEntry(
-                status_string='M  test_flake8.py',
+                status_string="M  test_flake8.py",
                 root_path=Path(__file__).parent,
             )
         ]
