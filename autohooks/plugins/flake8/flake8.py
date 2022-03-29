@@ -28,7 +28,7 @@ DEFAULT_INCLUDE = ("*.py",)
 DEFAULT_ARGUMENTS = []
 
 
-def _check_flake8_installed():
+def check_flake8_installed():
     try:
         import flake8  # noqa: F401
     except ImportError as e:
@@ -38,18 +38,18 @@ def _check_flake8_installed():
         ) from e
 
 
-def _get_flake8_config(config):
+def get_flake8_config(config):
     return config.get("tool").get("autohooks").get("plugins").get("flake8")
 
 
-def _ensure_iterable(value):
+def ensure_iterable(value):
     if isinstance(value, str):
         return [value]
 
     return value
 
 
-def _get_include_from_config(config):
+def get_include_from_config(config):
     if not config:
         return DEFAULT_INCLUDE
 
@@ -61,7 +61,7 @@ def _get_include_from_config(config):
     return include
 
 
-def _get_flake8_arguments(config):
+def get_flake8_arguments(config):
     if not config:
         return DEFAULT_ARGUMENTS
 
