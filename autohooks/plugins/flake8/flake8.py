@@ -107,3 +107,4 @@ def precommit(config=None, **kwargs):
             ok("Linting {} was successful.".format(str(f.path)))
 
         return ret
+        
