@@ -73,7 +73,7 @@ def get_flake8_arguments(config):
     return arguments
 
 
-def precommit(config=None, **kwargs): # flake8: disable=unused-argument
+def precommit(config=None, **kwargs):  # flake8: disable=unused-argument
     """Precommit hook for running flake8 on staged files."""
     check_flake8_installed()
 
