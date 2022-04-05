@@ -30,7 +30,7 @@ DEFAULT_ARGUMENTS = []
 
 def check_flake8_installed():
     try:
-        import flake8  # noqa: F401
+        import flake8  # flake8: disable=import-outside-toplevel, disable=unused-import
     except ImportError as e:
         raise Exception(
             "Could not find flake8. Please add flake8 to your python "
@@ -73,7 +73,7 @@ def get_flake8_arguments(config):
     return arguments
 
 
-def precommit(config=None, **kwargs):
+def precommit(config=None, **kwargs): # flake8: disable=unused-argument
     """Precommit hook for running flake8 on staged files."""
     check_flake8_installed()
 
@@ -97,13 +97,13 @@ def precommit(config=None, **kwargs):
                 subprocess.run(cmd, check=True, capture_output=True)
             except subprocess.CalledProcessError as e:
                 ret = e.returncode
-                error("Linting error(s) found in {}:".format(str(f.path)))
+                error(f"Linting error(s) found in {str(f.path)}:")
                 lint_errors = e.stdout.decode(
                     encoding=sys.getdefaultencoding(), errors="replace"
                 ).split("\n")
                 for line in lint_errors:
                     out(line)
                 continue
-            ok("Linting {} was successful.".format(str(f.path)))
+            ok(f"Linting {str(f.path)} was successful.")
 
         return ret
