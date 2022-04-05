@@ -14,7 +14,7 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-# flake8: disable-all
+# pylint: disable-all
 
 import sys
 
@@ -68,12 +68,12 @@ class AutohooksFlake8TestCase(TestCase):
         self.assertEqual(flake8_config.get_value("foo"), "bar")
 
     def test_ensure_iterable(self):
-        foo = "bar"  # flake8: disable=blacklisted-name
-        bar = ensure_iterable(foo)  # flake8: disable=blacklisted-name
+        foo = "bar"  # pylint: disable=blacklisted-name
+        bar = ensure_iterable(foo)  # pylint: disable=blacklisted-name
         self.assertEqual(bar, ["bar"])
 
-        foo = ["bar"]
-        bar = ensure_iterable(foo)  # flake8: disable=blacklisted-name
+        foo = ["bar"]  # pylint: disable=blacklisted-name
+        bar = ensure_iterable(foo)  # pylint: disable=blacklisted-name
         self.assertEqual(bar, ["bar"])
 
     def test_get_include_from_config(self):

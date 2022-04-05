@@ -30,7 +30,7 @@ DEFAULT_ARGUMENTS = []
 
 def check_flake8_installed():
     try:
-        import flake8  # flake8: disable=import-outside-toplevel, disable=unused-import
+        import flake8  # pylint: disable=import-outside-toplevel, disable=unused-import
     except ImportError as e:
         raise Exception(
             "Could not find flake8. Please add flake8 to your python "
@@ -73,7 +73,7 @@ def get_flake8_arguments(config):
     return arguments
 
 
-def precommit(config=None, **kwargs):  # flake8: disable=unused-argument
+def precommit(config=None, **kwargs):  # pylint: disable=unused-argument
     """Precommit hook for running flake8 on staged files."""
     check_flake8_installed()
 
