@@ -47,3 +47,6 @@ pre-commit = [
   "autohooks.plugins.isort",
   "autohooks.plugins.flake8",
 ]
+
+[tool.pontos.version]
+version-module-file = "autohooks/plugins/flake8/__version__.py"
