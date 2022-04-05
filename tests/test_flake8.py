@@ -86,7 +86,6 @@ class AutohooksFlake8TestCase(TestCase):
         self.assertFalse(ret)
 
     # these Terminal output functions don't run in the CI ...
-    # @patch('sys.stdout', new_callable=StringIO)
     @patch("autohooks.plugins.flake8.flake8.ok")
     @patch("autohooks.plugins.flake8.flake8.out")
     @patch("autohooks.plugins.flake8.flake8.error")
@@ -131,7 +130,6 @@ print(err.decode(encoding='utf-8'))"""
         test_file.unlink()
 
     # these Terminal output functions don't run in the CI ...
-    # @patch('sys.stdout', new_callable=StringIO)
     @patch("autohooks.plugins.flake8.flake8.ok")
     @patch("autohooks.plugins.flake8.flake8.out")
     @patch("autohooks.plugins.flake8.flake8.error")
