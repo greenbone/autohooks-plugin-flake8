@@ -46,6 +46,7 @@ def get_test_config_path(name):
 
 class AutohooksFlake8TestCase(TestCase):
     def test_flake8_installed(self):
+        check_flake8_installed()
         flake8 = sys.modules["flake8"]
         sys.modules["flake8"] = None
         with self.assertRaises(Exception):
