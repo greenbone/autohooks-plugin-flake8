@@ -28,8 +28,8 @@ from autohooks.config import load_config_from_pyproject_toml
 from autohooks.terminal import Terminal
 from autohooks.api import _set_terminal
 from autohooks.api.git import (
-    Status, 
-    StatusEntry, 
+    Status,
+    StatusEntry,
     get_staged_status,
 )  # noqa: F401
 
