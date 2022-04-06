@@ -15,18 +15,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # pylint: disable-all
+# flake8: noqa: F401,F841,E265
 
 import sys
 
-from io import StringIO
+from io import StringIO  # noqa: F401
 from pathlib import Path
 from unittest import TestCase
-from unittest.mock import patch, MagicMock, Mock
+from unittest.mock import patch, MagicMock, Mock  # noqa: F401
 
 from autohooks.config import load_config_from_pyproject_toml
 from autohooks.terminal import Terminal
 from autohooks.api import _set_terminal
-from autohooks.api.git import Status, StatusEntry, get_staged_status
+from autohooks.api.git import Status, StatusEntry, get_staged_status  # noqa: F401
 
 from autohooks.plugins.flake8.flake8 import (
     DEFAULT_ARGUMENTS,
@@ -46,7 +47,7 @@ def get_test_config_path(name):
 
 class AutohooksFlake8TestCase(TestCase):
     def test_flake8_installed(self):
-        check_flake8_installed()
+        check_flake8_installed()  # noqa: F841
         flake8 = sys.modules["flake8"]
         sys.modules["flake8"] = None
         with self.assertRaises(Exception):
