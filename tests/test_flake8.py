@@ -30,8 +30,8 @@ from autohooks.api import _set_terminal
 from autohooks.api.git import (
     Status, 
     StatusEntry, 
-    get_staged_status
-  )  # noqa: F401
+    get_staged_status,
+)  # noqa: F401
 
 from autohooks.plugins.flake8.flake8 import (
     DEFAULT_ARGUMENTS,
