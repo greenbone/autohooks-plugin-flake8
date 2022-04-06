@@ -27,7 +27,11 @@ from unittest.mock import patch, MagicMock, Mock  # noqa: F401
 from autohooks.config import load_config_from_pyproject_toml
 from autohooks.terminal import Terminal
 from autohooks.api import _set_terminal
-from autohooks.api.git import Status, StatusEntry, get_staged_status  # noqa: F401
+from autohooks.api.git import (
+    Status, 
+    StatusEntry, 
+    get_staged_status
+  )  # noqa: F401
 
 from autohooks.plugins.flake8.flake8 import (
     DEFAULT_ARGUMENTS,
