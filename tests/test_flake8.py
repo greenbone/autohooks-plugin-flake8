@@ -102,28 +102,10 @@ class AutohooksFlake8TestCase(TestCase):
         _out_mock,
         _ok_mock,  # _mock_stdout
     ):
-
-        code = """from io import StringIO, BytesIO, FileIO
-import sys
-cmd = ['flake8', 'autohooks/plugins/flake8/flake8.py']
-import subprocess  # flake8: disable=
-# status = subprocess.call(cmd)
-iofile = 'tmp.txt'
-# status = subprocess.call(cmd, stdout=iofile)
-# blah blah lots of code ...
-status = subprocess.Popen(
-    cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-out, err = status.communicate()
-print(out.decode(encoding='utf-8'))
-print(err.decode(encoding='utf-8'))"""
-
-        test_file = Path(__file__).parent / "lint_test.py"
-        with open(test_file, "a") as fp:
-            fp.writelines(code)
-
+    
         staged_mock.return_value = [
             StatusEntry(
-                status_string="M  lint_test.py",
+                status_string="M  flake8_test.py",
                 root_path=Path(__file__).parent,
             )
         ]
