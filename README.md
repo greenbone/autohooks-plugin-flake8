@@ -59,7 +59,7 @@ pylint rc file the following plugin configuration can be used:
 pre-commit = ["autohooks.plugins.flake8"]
 
 [tool.autohooks.plugins.flake8]
-arguments = ["--rcfile=/path/to/pylintrc", "-s", "n"]
+arguments = ["--rcfile=/path/to/flake8rc", "-s", "n"]
 ```
 
 To configure flake8 you can specify command-line options in the flake8 
