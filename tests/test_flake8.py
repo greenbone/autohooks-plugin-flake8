@@ -102,7 +102,7 @@ class AutohooksFlake8TestCase(TestCase):
         _out_mock,
         _ok_mock,  # _mock_stdout
     ):
-    
+
         staged_mock.return_value = [
             StatusEntry(
                 status_string="M  flake8_test.py",
@@ -114,7 +114,6 @@ class AutohooksFlake8TestCase(TestCase):
 
         # Returncode != 0 -> errors
         self.assertTrue(ret)
-        test_file.unlink()
 
     # these Terminal output functions don't run in the CI ...
     @patch("autohooks.plugins.flake8.flake8.ok")
