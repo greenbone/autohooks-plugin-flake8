@@ -14,7 +14,7 @@ linting via [flake8](https://github.com/PyCQA/flake8).
 You can install the latest stable release of autohooks-plugin-flake8 from the
 Python Package Index using [pip](https://pip.pypa.io/):
 
-    pip install autohooks-plugin-flake8
+    python3 -m pip install autohooks-plugin-flake8
 
 Note the `pip` refers to the Python 3 package manager. In a environment where
 Python 2 is also available the correct command may be `pip3`.
