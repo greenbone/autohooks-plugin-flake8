@@ -49,19 +49,6 @@ pre-commit = ["autohooks.plugins.flake8"]
 include = ['foo/*.py', '*.foo']
 ```
 
-By default, autohooks plugin flake8 executes pylint without any arguments and
-pylint settings are loaded from the *.pylintrc* file in the root directory of
-the git repository. To change specific settings or to define a different 
-pylint rc file the following plugin configuration can be used:
-
-```toml
-[tool.autohooks]
-pre-commit = ["autohooks.plugins.flake8"]
-
-[tool.autohooks.plugins.flake8]
-arguments = ["--rcfile=/path/to/pylintrc", "-s", "n"]
-```
-
 To configure flake8 you can specify command-line options in the flake8 
 configuration file *.flake8* in the root directory of the git repository.
 To learn more about flake8 configuration see the configuration file or
