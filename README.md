@@ -55,10 +55,12 @@ To learn more about flake8 configuration see the configuration file or
 the flake8 documentation. You can specify your own configuration file using 
 
 ```
-flake8 --config
+arguments = ["--config=/path/to/flake8config"]
 ```
 
-See `flake8 --help` for more details
+inside the `[tool.autohooks.plugins.flake8]` section of your projects `pyproject.toml`.
+
+See `flake8 --help` for more details.
 
 ## Maintainer
 
