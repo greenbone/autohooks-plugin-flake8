@@ -49,10 +49,16 @@ pre-commit = ["autohooks.plugins.flake8"]
 include = ['foo/*.py', '*.foo']
 ```
 
-To configure flake8 you can specify command-line options in the flake8 
+To configure flake8 you can specify command-line options in the default flake8 
 configuration file *.flake8* in the root directory of the git repository.
 To learn more about flake8 configuration see the configuration file or
-the flake8 documentation.
+the flake8 documentation. You can specify your own configuration file using 
+
+```
+flake8 --config
+```
+
+See `flake8 --help` for more details
 
 ## Maintainer
 
