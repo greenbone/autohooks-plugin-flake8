@@ -28,9 +28,9 @@ DEFAULT_INCLUDE = ("*.py",)
 DEFAULT_ARGUMENTS = []
 
 
-def _check_flake8_installed():
+def check_flake8_installed():
     try:
-        import flake8  # noqa: F401
+        import flake8  # pylint: disable=import-outside-toplevel, disable=unused-import
     except ImportError as e:
         raise Exception(
             "Could not find flake8. Please add flake8 to your python "
@@ -38,46 +38,46 @@ def _check_flake8_installed():
         ) from e
 
 
-def _get_flake8_config(config):
+def get_flake8_config(config):
     return config.get("tool").get("autohooks").get("plugins").get("flake8")
 
 
-def _ensure_iterable(value):
+def ensure_iterable(value):
     if isinstance(value, str):
         return [value]
 
     return value
 
 
-def _get_include_from_config(config):
+def get_include_from_config(config):
     if not config:
         return DEFAULT_INCLUDE
 
-    flake8_config = _get_flake8_config(config)
-    include = _ensure_iterable(
+    flake8_config = get_flake8_config(config)
+    include = ensure_iterable(
         flake8_config.get_value("include", DEFAULT_INCLUDE)
     )
 
     return include
 
 
-def _get_flake8_arguments(config):
+def get_flake8_arguments(config):
     if not config:
         return DEFAULT_ARGUMENTS
 
-    flake8_config = _get_flake8_config(config)
-    arguments = _ensure_iterable(
+    flake8_config = get_flake8_config(config)
+    arguments = ensure_iterable(
         flake8_config.get_value("arguments", DEFAULT_ARGUMENTS)
     )
 
     return arguments
 
 
-def precommit(config=None, **kwargs):
+def precommit(config=None, **kwargs):  # pylint: disable=unused-argument
     """Precommit hook for running flake8 on staged files."""
-    _check_flake8_installed()
+    check_flake8_installed()
 
-    include = _get_include_from_config(config)
+    include = get_include_from_config(config)
 
     files = [f for f in get_staged_status() if match(f.path, include)]
 
@@ -85,7 +85,7 @@ def precommit(config=None, **kwargs):
         ok("No staged files for flake8 available.")
         return 0
 
-    arguments = _get_flake8_arguments(config)
+    arguments = get_flake8_arguments(config)
 
     with stash_unstaged_changes(files):
         ret = 0
@@ -97,13 +97,13 @@ def precommit(config=None, **kwargs):
                 subprocess.run(cmd, check=True, capture_output=True)
             except subprocess.CalledProcessError as e:
                 ret = e.returncode
-                error("Linting error(s) found in {}:".format(str(f.path)))
+                error(f"Linting error(s) found in {str(f.path)}:")
                 lint_errors = e.stdout.decode(
                     encoding=sys.getdefaultencoding(), errors="replace"
                 ).split("\n")
                 for line in lint_errors:
                     out(line)
                 continue
-            ok("Linting {} was successful.".format(str(f.path)))
+            ok(f"Linting {str(f.path)} was successful.")
 
         return ret

@@ -1,0 +1,5 @@
+[flake8]
+ # A list of configuration options for flake8
+ # Any command-line option you want to specify in this file can be added following this rule:
+ # option = parameter (e.g. exclude = .git, old, build) 
+ # for more information see the flake8 documentation or the help option

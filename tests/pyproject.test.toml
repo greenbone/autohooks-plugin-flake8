@@ -1,0 +1,6 @@
+[tool.autohooks]
+pre-commit = ['foo', 'autohooks.plugins.flake8']
+
+[tool.autohooks.plugins.flake8]
+foo = 'bar'
+
