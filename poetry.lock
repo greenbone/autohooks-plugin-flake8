@@ -1,6 +1,6 @@
 [[package]]
 name = "astroid"
-version = "2.11.3"
+version = "2.11.5"
 description = "An abstract syntax tree for Python with inference support."
 category = "main"
 optional = false
@@ -392,8 +392,8 @@ content-hash = "b0e102514fb60e5d7bd8c62bbb7017c0b241e86fcfe6cfb9273eb731dd909cbd
 
 [metadata.files]
 astroid = [
-    {file = "astroid-2.11.3-py3-none-any.whl", hash = "sha256:f1af57483cd17e963b2eddce8361e00fc593d1520fe19948488e94ff6476bd71"},
-    {file = "astroid-2.11.3.tar.gz", hash = "sha256:4e5ba10571e197785e312966ea5efb2f5783176d4c1a73fa922d474ae2be59f7"},
+    {file = "astroid-2.11.5-py3-none-any.whl", hash = "sha256:14ffbb4f6aa2cf474a0834014005487f7ecd8924996083ab411e7fa0b508ce0b"},
+    {file = "astroid-2.11.5.tar.gz", hash = "sha256:f4e4ec5294c4b07ac38bab9ca5ddd3914d4bf46f9006eb5c0ae755755061044e"},
 ]
 autohooks = [
     {file = "autohooks-21.7.0-py3-none-any.whl", hash = "sha256:54bda89bbd5b19d83538a110bca0088b38378a4c0e1cf14581792f3e41a5a260"},
