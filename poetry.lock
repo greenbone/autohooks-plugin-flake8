@@ -27,15 +27,15 @@ tomlkit = ">=0.5.11"
 
 [[package]]
 name = "autohooks-plugin-black"
-version = "21.12.0"
+version = "22.7.0"
 description = "An autohooks plugin for python code formatting via black"
 category = "dev"
 optional = false
-python-versions = ">=3.7.0,<4.0"
+python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
-autohooks = ">=21.6.0,<22.0.0"
-black = ">=20.8,<=23.0.0b0"
+autohooks = ">=21.6.0"
+black = ">=20.8"
 
 [[package]]
 name = "autohooks-plugin-isort"
@@ -388,7 +388,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "6436e835089ed3745af7aef6f5efa63c0e666cd4e76ca9ea8ca880e82973d8e5"
+content-hash = "09076669f32d988460489f5414eced2bda170337a1de198b03e98e6ad8e021a0"
 
 [metadata.files]
 astroid = []
