@@ -242,7 +242,7 @@ test = ["appdirs (==1.4.4)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)", "pytes
 
 [[package]]
 name = "pontos"
-version = "22.5.0"
+version = "22.7.2"
 description = "Common utilities and tools maintained by Greenbone Networks"
 category = "dev"
 optional = false
@@ -250,7 +250,7 @@ python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
 colorful = ">=0.5.4,<0.6.0"
-packaging = ">=20.3,<21.0"
+packaging = ">=20.3"
 requests = ">=2.24.0,<3.0.0"
 tomlkit = ">=0.5.11"
 
@@ -388,7 +388,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "9a4ef4afd1243282b5944cc7ac34c3428a45d8a2e47140967922843c4f952478"
+content-hash = "6436e835089ed3745af7aef6f5efa63c0e666cd4e76ca9ea8ca880e82973d8e5"
 
 [metadata.files]
 astroid = []
