@@ -1,5 +1,8 @@
-i# python specific
+# python specific
 *.egg-info/
 __pycache__/
+*.pyc
 dist
+build
+.vscode
 
