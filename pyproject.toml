@@ -4,10 +4,33 @@ version = "22.6.2.dev1"
 readme = "README.md"
 description = "An autohooks plugin for python code linting via flake8."
 authors = ["Greenbone Networks GmbH <info@greenbone.net>"]
-license = "AGPL-3.0-or-later"
+license = "GPL-3.0-or-later"
 packages = [
   { include = "autohooks" },
   { include = "tests", format = "sdist" },
+]
+homepage = "https://github.com/greenbone/autohooks-plugin-flake8"
+repository = "https://github.com/greenbone/autohooks-plugin-flake8"
+classifiers=[
+  # Full list: https://pypi.org/pypi?%3Aaction=list_classifiers
+  "Development Status :: 5 - Production/Stable",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",  # pylint: disable=line-too-long
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Operating System :: OS Independent",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Software Development :: Version Control :: Git",
+]
+keywords = [
+  "git",
+  "linting",
+  "hooks",
+  "flake8",
 ]
 
 [tool.poetry.dependencies]
@@ -31,7 +54,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.black]
 line-length = 79
-target-version = ["py37", "py38"]
+target-version = ["py37", "py38", "py39", "py310"]
 exclude = '''
 /(
     \.git

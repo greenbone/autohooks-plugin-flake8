@@ -18,29 +18,22 @@
 # flake8: noqa: F401,F841,E265
 
 import sys
-
 from io import StringIO  # noqa: F401
 from pathlib import Path
 from unittest import TestCase
-from unittest.mock import patch, MagicMock, Mock  # noqa: F401
+from unittest.mock import patch
 
+from autohooks.api.git import StatusEntry
 from autohooks.config import load_config_from_pyproject_toml
-from autohooks.terminal import Terminal
-from autohooks.api import _set_terminal
-from autohooks.api.git import (
-    Status,
-    StatusEntry,
-    get_staged_status,
-)  # noqa: F401
 
 from autohooks.plugins.flake8.flake8 import (
     DEFAULT_ARGUMENTS,
     DEFAULT_INCLUDE,
     check_flake8_installed,
     ensure_iterable,
-    get_include_from_config,
     get_flake8_arguments,
     get_flake8_config,
+    get_include_from_config,
     precommit,
 )
 
