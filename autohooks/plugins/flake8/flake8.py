@@ -73,7 +73,9 @@ def get_flake8_arguments(config):
     return arguments
 
 
-def precommit(config=None, **kwargs):  # pylint: disable=unused-argument
+def precommit(
+    config=None, report_progress=None, **kwargs
+):  # pylint: disable=unused-argument
     """Precommit hook for running flake8 on staged files."""
     check_flake8_installed()
 
@@ -85,6 +87,9 @@ def precommit(config=None, **kwargs):  # pylint: disable=unused-argument
         ok("No staged files for flake8 available.")
         return 0
 
+    if report_progress:
+        report_progress.init(len(files))
+
     arguments = get_flake8_arguments(config)
 
     with stash_unstaged_changes(files):
@@ -95,6 +100,9 @@ def precommit(config=None, **kwargs):  # pylint: disable=unused-argument
             cmd.append(str(f.absolute_path()))
             try:
                 subprocess.run(cmd, check=True, capture_output=True)
+                ok(f"Linting {str(f.path)} was successful.")
+                if report_progress:
+                    report_progress.update()
             except subprocess.CalledProcessError as e:
                 ret = e.returncode
                 error(f"Linting error(s) found in {str(f.path)}:")
@@ -104,6 +112,5 @@ def precommit(config=None, **kwargs):  # pylint: disable=unused-argument
                 for line in lint_errors:
                     out(line)
                 continue
-            ok(f"Linting {str(f.path)} was successful.")
 
         return ret
