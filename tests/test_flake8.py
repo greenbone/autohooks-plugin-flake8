@@ -60,7 +60,6 @@ class AutohooksFlake8TestCase(TestCase):
         self.assertTrue(config_path.is_file())
 
         autohooksconfig = load_config_from_pyproject_toml(config_path)
-        self.assertTrue(autohooksconfig.has_config())
 
         flake8_config = get_flake8_config(autohooksconfig.get_config())
         self.assertEqual(flake8_config.get_value("foo"), "bar")
