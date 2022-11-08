@@ -19,18 +19,21 @@
 
 import subprocess
 import sys
+from typing import Iterable, List, Union
 
 from autohooks.api import error, ok, out
 from autohooks.api.git import get_staged_status, stash_unstaged_changes
 from autohooks.api.path import match
+from autohooks.config import AutohooksConfig
+from autohooks.precommit.run import ReportProgress
 
 DEFAULT_INCLUDE = ("*.py",)
-DEFAULT_ARGUMENTS = []
+DEFAULT_ARGUMENTS: List[str] = []
 
 
-def check_flake8_installed():
+def check_flake8_installed() -> None:
     try:
-        import flake8  # pylint: disable=import-outside-toplevel, disable=unused-import
+        import flake8  # pylint: disable=import-outside-toplevel, disable=unused-import # noqa: F401,E501
     except ImportError as e:
         raise Exception(
             "Could not find flake8. Please add flake8 to your python "
@@ -38,18 +41,18 @@ def check_flake8_installed():
         ) from e
 
 
-def get_flake8_config(config):
+def get_flake8_config(config: AutohooksConfig) -> AutohooksConfig:
     return config.get("tool").get("autohooks").get("plugins").get("flake8")
 
 
-def ensure_iterable(value):
+def ensure_iterable(value: Union[str, List[str]]) -> List[str]:
     if isinstance(value, str):
         return [value]
 
     return value
 
 
-def get_include_from_config(config):
+def get_include_from_config(config: AutohooksConfig) -> Iterable[str]:
     if not config:
         return DEFAULT_INCLUDE
 
@@ -61,7 +64,7 @@ def get_include_from_config(config):
     return include
 
 
-def get_flake8_arguments(config):
+def get_flake8_arguments(config: AutohooksConfig) -> Iterable[str]:
     if not config:
         return DEFAULT_ARGUMENTS
 
@@ -74,8 +77,10 @@ def get_flake8_arguments(config):
 
 
 def precommit(
-    config=None, report_progress=None, **kwargs
-):  # pylint: disable=unused-argument
+    config: AutohooksConfig = None,
+    report_progress: ReportProgress = None,
+    **kwargs,  # pylint: disable=unused-argument
+) -> int:
     """Precommit hook for running flake8 on staged files."""
     check_flake8_installed()
 
