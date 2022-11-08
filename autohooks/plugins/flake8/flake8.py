@@ -28,7 +28,7 @@ from autohooks.config import AutohooksConfig
 from autohooks.precommit.run import ReportProgress
 
 DEFAULT_INCLUDE = ("*.py",)
-DEFAULT_ARGUMENTS = []
+DEFAULT_ARGUMENTS: List[str] = []
 
 
 def check_flake8_installed() -> None:
