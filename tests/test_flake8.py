@@ -94,7 +94,6 @@ class AutohooksFlake8TestCase(TestCase):
         _out_mock,
         _ok_mock,  # _mock_stdout
     ):
-
         staged_mock.return_value = [
             StatusEntry(
                 status_string="M  flake8_test.py",
