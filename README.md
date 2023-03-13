@@ -64,7 +64,7 @@ See `flake8 --help` for more details.
 
 ## Maintainer
 
-This project is maintained by [Greenbone Networks GmbH](https://www.greenbone.net/).
+This project is maintained by [Greenbone AG](https://www.greenbone.net/).
 
 ## Contributing
 
@@ -76,7 +76,7 @@ first.
 
 ## License
 
-Copyright (C) 2019 - 2022 [Greenbone Networks GmbH](https://www.greenbone.net/)
+Copyright (C) 2019 - 2022 [Greenbone AG](https://www.greenbone.net/)
 
 Licensed under the [GNU General Public License v3.0 or later](LICENSE).
 
