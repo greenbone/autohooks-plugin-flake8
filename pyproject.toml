@@ -48,6 +48,7 @@ black = ">=22.6.0"
 isort = "^5.11.5"
 autohooks-plugin-black = ">=22.7.0"
 autohooks-plugin-isort = ">=22.3.0"
+coverage = "^7.2.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
