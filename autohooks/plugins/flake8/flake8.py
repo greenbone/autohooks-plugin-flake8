@@ -19,7 +19,7 @@
 
 import subprocess
 import sys
-from typing import Iterable, List, Union, Optional
+from typing import Iterable, List, Optional, Union
 
 from autohooks.api import error, ok, out
 from autohooks.api.git import get_staged_status, stash_unstaged_changes
@@ -35,7 +35,7 @@ def check_flake8_installed() -> None:
     try:
         import flake8  # pylint: disable=import-outside-toplevel, disable=unused-import # noqa: F401,E501
     except ImportError as e:
-        raise Exception(
+        raise RuntimeError(
             "Could not find flake8. Please add flake8 to your python "
             "environment"
         ) from e
