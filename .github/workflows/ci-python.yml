@@ -19,11 +19,15 @@ jobs:
             - "3.10"
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: greenbone/actions/lint-python@v2
+      - name: Install poetry and dependencies
+        uses: greenbone/actions/poetry@v2
         with:
-          packages: autohooks tests
           version: ${{ matrix.python-version }}
+          cache: true
+      - name: Check with black
+        run: poetry run black --check --diff autohooks
+      - name: Check with flake8
+        run: poetry run flake8 autohooks
 
   type-checking:
     name: Type-checker
