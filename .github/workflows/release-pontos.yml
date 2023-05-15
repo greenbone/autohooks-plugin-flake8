@@ -13,21 +13,21 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: Setting the Reference
+        id: ref
         run: |
           if [[ "${{ github.event_name }}" = "workflow_dispatch" ]]; then
-            echo "RELEASE_REF=${{ github.ref_name }}" >> $GITHUB_ENV
+            echo "release_ref=${{ github.ref_name }}" >> $GITHUB_OUTPUT
           else
-            echo "RELEASE_REF=${{ github.base_ref }}" >> $GITHUB_ENV
+            echo "release_ref=${{ github.base_ref }}" >> $GITHUB_OUTPUT
           fi
       - name: Release with release action
         uses: greenbone/actions/release@v2
         with:
-          conventional-commits: true
           github-user: ${{ secrets.GREENBONE_BOT }}
           github-user-mail: ${{ secrets.GREENBONE_BOT_MAIL }}
           github-user-token: ${{ secrets.GREENBONE_BOT_TOKEN }}
           gpg-key: ${{ secrets.GPG_KEY }}
           gpg-fingerprint: ${{ secrets.GPG_FINGERPRINT }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          strategy: calendar
-          ref: ${{ env.RELEASE_REF }}
+          release-type: calendar
+          ref: ${{ steps.ref.outputs.release_ref }}
