@@ -75,4 +75,5 @@ pre-commit = [
 version-module-file = "autohooks/plugins/flake8/__version__.py"
 
 [tool.mypy]
+files = "autohooks"
 ignore_missing_imports = true
