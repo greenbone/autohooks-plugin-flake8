@@ -1,10 +1,10 @@
-name: Build and test Python package
+name: Check and test Python package
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
 
 jobs:
   linting:
@@ -46,7 +46,6 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: greenbone/actions/mypy-python@v2
         with:
-          packages: autohooks
           python-version: ${{ matrix.python-version }}
 
   test:
