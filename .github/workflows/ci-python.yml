@@ -24,7 +24,6 @@ jobs:
         uses: greenbone/actions/poetry@v3
         with:
           python-version: ${{ matrix.python-version }}
-          cache: "true"
       - name: Check with black
         run: poetry run black --check --diff autohooks
       - name: Check with flake8
