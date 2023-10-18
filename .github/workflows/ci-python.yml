@@ -13,11 +13,10 @@ jobs:
     strategy:
         matrix:
           python-version:
-            - "3.7"
-            - "3.8"
             - "3.9"
             - "3.10"
             - "3.11"
+            - "3.12"
     steps:
       - uses: actions/checkout@v4
       - name: Install poetry and dependencies
@@ -34,11 +33,10 @@ jobs:
     strategy:
         matrix:
           python-version:
-            - "3.7"
-            - "3.8"
             - "3.9"
             - "3.10"
             - "3.11"
+            - "3.12"
     uses: greenbone/workflows/.github/workflows/typing-python.yml@main
     with:
       python-version: ${{ matrix.python-version }}
@@ -48,11 +46,10 @@ jobs:
     strategy:
         matrix:
           python-version:
-            - "3.7"
-            - "3.8"
             - "3.9"
             - "3.10"
             - "3.11"
+            - "3.12"
     uses: greenbone/workflows/.github/workflows/test-python.yml@main
     with:
       python-version: ${{ matrix.python-version }}
