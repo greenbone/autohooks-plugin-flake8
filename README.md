@@ -16,9 +16,6 @@ Python Package Index using [pip](https://pip.pypa.io/):
 
     python3 -m pip install autohooks-plugin-flake8
 
-Note the `pip` refers to the Python 3 package manager. In an environment where
-Python 2 is also available the correct command may be `pip3`.
-
 ### Install using poetry
 
 It is highly encouraged to use [poetry](https://python-poetry.org) for
@@ -49,10 +46,10 @@ pre-commit = ["autohooks.plugins.flake8"]
 include = ['foo/*.py', '*.foo']
 ```
 
-To configure flake8 you can specify command-line options in the default flake8 
+To configure flake8 you can specify command-line options in the default flake8
 configuration file *.flake8* in the root directory of the git repository.
 To learn more about flake8 configuration see the configuration file or
-the flake8 documentation. You can specify your own configuration file using 
+the flake8 documentation. You can specify your own configuration file using
 
 ```
 arguments = ["--config=/path/to/flake8config"]
@@ -76,7 +73,7 @@ first.
 
 ## License
 
-Copyright (C) 2019 - 2022 [Greenbone AG](https://www.greenbone.net/)
+Copyright (C) 2019 - 2023 [Greenbone AG](https://www.greenbone.net/)
 
 Licensed under the [GNU General Public License v3.0 or later](LICENSE).
 
