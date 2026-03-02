@@ -22,14 +22,14 @@ trio = ["trio (>=0.31.0) ; python_version < \"3.10\"", "trio (>=0.32.0) ; python
 
 [[package]]
 name = "autohooks"
-version = "25.11.0"
+version = "26.2.0"
 description = "Library for managing git hooks"
 optional = false
 python-versions = "<4.0,>=3.9"
 groups = ["main", "dev"]
 files = [
-    {file = "autohooks-25.11.0-py3-none-any.whl", hash = "sha256:b314eaae24074e05f5247d9afbe223391f1aafc46d8ceb4652240f7f3a2b4a95"},
-    {file = "autohooks-25.11.0.tar.gz", hash = "sha256:bf5d7c04904dfb0f92f6c4c7e64eb4d859f2f2d48ddaeea84698be2e3afb871c"},
+    {file = "autohooks-26.2.0-py3-none-any.whl", hash = "sha256:b0bb989922c595b3689ce7b3ef52d282e636eed65456f7b1ba5e189fdf989ee3"},
+    {file = "autohooks-26.2.0.tar.gz", hash = "sha256:8c8fe68545a8835383b89ebd1c413bb1fe11eaad8856214930ce43ec1c0fd766"},
 ]
 
 [package.dependencies]
@@ -124,14 +124,14 @@ uvloop = ["uvloop (>=0.15.2)"]
 
 [[package]]
 name = "certifi"
-version = "2026.1.4"
+version = "2026.2.25"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
 python-versions = ">=3.7"
 groups = ["main", "dev"]
 files = [
-    {file = "certifi-2026.1.4-py3-none-any.whl", hash = "sha256:9943707519e4add1115f44c2bc244f782c0249876bf51b6599fee1ffbedd685c"},
-    {file = "certifi-2026.1.4.tar.gz", hash = "sha256:ac726dd470482006e014ad384921ed6438c457018f4b3d204aea4281258b2120"},
+    {file = "certifi-2026.2.25-py3-none-any.whl", hash = "sha256:027692e4402ad994f1c42e52a4997a9763c646b73e4096e4d5d6db8af1d6f0fa"},
+    {file = "certifi-2026.2.25.tar.gz", hash = "sha256:e887ab5cee78ea814d3472169153c2d12cd43b14bd03329a39a9c6e2e80bfba7"},
 ]
 
 [[package]]
