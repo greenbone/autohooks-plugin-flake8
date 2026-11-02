@@ -32,7 +32,7 @@ flake8 = ">=5.0.4"
 autohooks = ">=21.3.0"
 
 [tool.poetry.dev-dependencies]
-mypy = ">=2.4.0"
+mypy = ">=2.4.1"
 pontos = ">=26.9.2"
 autohooks-plugin-black = ">=22.7.0"
 autohooks-plugin-isort = ">=22.3.0"
